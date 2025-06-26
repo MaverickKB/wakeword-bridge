@@ -7,15 +7,17 @@ from wyoming.client import AsyncClient
 from wyoming.audio import AudioChunk
 from wyoming.event import Event
 from wyoming.wake import WakeWordDetected
+import os
+
+MQTT_HOST = os.getenv("MQTT_HOST", "homeassistant")
+MQTT_PORT = int(os.getenv("MQTT_PORT", "1883"))
+MQTT_USER = os.getenv("MQTT_USERNAME", "")
+MQTT_PASSWORD = os.getenv("MQTT_PASSWORD", "")
+SITE_ID = os.getenv("SITE_ID", "nspanel")
 
 UDP_PORT = 12202
 WYOMING_HOST = "127.0.0.1"
 WYOMING_PORT = 10400
-MQTT_HOST = "homeassistant"
-MQTT_PORT = 1883
-MQTT_USER = "your_username"
-MQTT_PASSWORD = "your_password"
-SITE_ID = "nspanel"
 WAKEWORD_MODEL = "hey_jarvis"
 
 async def detect_wakeword():
