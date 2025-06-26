@@ -1,0 +1,21 @@
+name: "Wake Word Bridge"
+version: "1.0.0"
+slug: "wakeword_bridge"
+description: "UDP to Wyoming Wake Word Bridge"
+arch:
+  - amd64
+  - aarch64
+  - armhf
+  - armv7
+  - i386
+startup: services
+boot: auto
+host_network: true
+map:
+  - type: share
+  - type: addons
+ports:
+  "10400/udp": 10400
+options: {}
+schema:
+  {}
