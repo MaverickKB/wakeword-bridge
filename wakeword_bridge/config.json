@@ -11,5 +11,4 @@
   "panel_icon": "mdi:account-voice",
   "options": {},
   "schema": {},
-  "image": "ghcr.io/your-org/wakeword-bridge-{arch}"
 }
