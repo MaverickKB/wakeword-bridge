@@ -1,4 +1,6 @@
 {
-    "name": "Ken's Wake Word Add-ons",
-    "url": "https://github.com/MaverickKB/wakeword-bridge"
-  }
+  "name": "Ken's Wake Word Add-ons",
+  "url": "https://github.com/MaverickKB/wakeword-bridge",
+  "maintainer": "MaverickKB",
+  "addons": ["wakeword_bridge"]
+}
