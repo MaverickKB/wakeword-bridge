@@ -1,0 +1,9 @@
+{
+    "build_from": {
+      "aarch64": "Dockerfile",
+      "amd64": "Dockerfile",
+      "armv7": "Dockerfile",
+      "armhf": "Dockerfile",
+      "i386": "Dockerfile"
+    }
+  }
