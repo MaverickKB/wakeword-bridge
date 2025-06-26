@@ -1,20 +1,22 @@
 FROM python:3.11-alpine
 
-# Install bash, curl (for bashio install), and any other dependencies
+# Install bash, curl, jq
 RUN apk add --no-cache bash curl jq
 
-# Install bashio (for reading config values in run.sh)
-RUN curl -sL https://raw.githubusercontent.com/hassio-addons/bashio/master/install.sh | bash
+# Install bashio properly with bash, not sh
+RUN curl -sL https://raw.githubusercontent.com/hassio-addons/bashio/master/install.sh -o /tmp/install.sh && \
+    chmod +x /tmp/install.sh && \
+    /bin/bash /tmp/install.sh
 
-# Install Python dependencies
+# Install Python deps
 RUN pip install --no-cache-dir paho-mqtt wyoming
 
-# Copy in your scripts
+# Copy in scripts
 COPY run.sh /run.sh
 COPY udp_to_wyoming_bridge.py /udp_to_wyoming_bridge.py
 
-# Make sure run.sh is executable
+# Make script executable
 RUN chmod +x /run.sh
 
-# Set default command
+# Entry point
 CMD ["/run.sh"]
