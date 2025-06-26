@@ -1,9 +1,9 @@
 {
-    "build_from": {
-      "aarch64": "local",
-      "amd64": "local",
-      "armv7": "local",
-      "armhf": "local",
-      "i386": "local"
-    }
+  "build_from": {
+    "aarch64": "ghcr.io/home-assistant/{arch}-base",
+    "amd64": "ghcr.io/home-assistant/{arch}-base",
+    "armv7": "ghcr.io/home-assistant/{arch}-base",
+    "armhf": "ghcr.io/home-assistant/{arch}-base",
+    "i386": "ghcr.io/home-assistant/{arch}-base"
   }
+}
