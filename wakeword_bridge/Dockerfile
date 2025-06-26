@@ -1,15 +1,21 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ${BUILD_FROM}
 
-RUN apk add --no-cache \
-      bash curl jq python3 py3-pip
+# Add Alpine packages
+RUN apk add --no-cache bash curl jq
 
-RUN curl -sL https://raw.githubusercontent.com/hassio-addons/bashio/master/install.sh | bash
+# Add bashio (for reading add-on options in run.sh)
+RUN curl -Lso /tmp/install.sh https://raw.githubusercontent.com/hassio-addons/bashio/master/install.sh \
+ && bash /tmp/install.sh \
+ && rm /tmp/install.sh
 
+# Python deps
 RUN pip install --no-cache-dir paho-mqtt wyoming
 
-COPY run.sh /run.sh
-COPY udp_to_wyoming_bridge.py /udp_to_wyoming_bridge.py
-RUN chmod a+x /run.sh
+# Copy add-on files
+COPY run.sh /
+COPY udp_to_wyoming_bridge.py /
+
+RUN chmod +x /run.sh
 
 CMD [ "/run.sh" ]
