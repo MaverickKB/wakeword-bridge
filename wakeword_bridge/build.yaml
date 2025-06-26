@@ -3,11 +3,11 @@ version: "1.0.0"
 slug: "wakeword_bridge"
 description: "UDP to Wyoming Wake Word Bridge"
 build_from:
-  aarch64: ghcr.io/home-assistant/{arch}-base
-  amd64:   ghcr.io/home-assistant/{arch}-base
-  armv7:   ghcr.io/home-assistant/{arch}-base
-  armhf:   ghcr.io/home-assistant/{arch}-base
-  i386:    ghcr.io/home-assistant/{arch}-base
+  aarch64: ghcr.io/home-assistant/aarch64-base
+  amd64: ghcr.io/home-assistant/amd64-base
+  armv7: ghcr.io/home-assistant/armv7-base
+  armhf: ghcr.io/home-assistant/armhf-base
+  i386: ghcr.io/home-assistant/i386-base
 startup: services
 boot: auto
 host_network: true
