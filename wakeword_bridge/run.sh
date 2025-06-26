@@ -1,4 +1,8 @@
-
 #!/bin/bash
-echo "Starting Wake Word Bridge..."
+export MQTT_HOST=$(bashio::config 'mqtt_host')
+export MQTT_PORT=$(bashio::config 'mqtt_port')
+export MQTT_USERNAME=$(bashio::config 'mqtt_username')
+export MQTT_PASSWORD=$(bashio::config 'mqtt_password')
+export SITE_ID=$(bashio::config 'site_id')
+
 python3 /udp_to_wyoming_bridge.py
