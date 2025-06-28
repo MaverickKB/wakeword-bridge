@@ -1,21 +1,4 @@
-# wakeword_bridge/build.yaml
-#
-# Only build-time settings live here.
-# Everything user-visible goes in config.yaml.
-
+---
 build_from:
-  aarch64: ghcr.io/home-assistant/aarch64-base-python:3.11
-  amd64:   ghcr.io/home-assistant/amd64-base-python:3.11
-  armv7:   ghcr.io/home-assistant/armv7-base-python:3.11
-  armhf:   ghcr.io/home-assistant/armhf-base-python:3.11
-  i386:    ghcr.io/home-assistant/i386-base-python:3.11
-
-labels:
-  org.opencontainers.image.title: "Wake Word Bridge"
-  org.opencontainers.image.description: "UDP-to-Wyoming wake-word bridge"
-  org.opencontainers.image.vendor: "Ken Bandoly"
-  org.opencontainers.image.licenses: "MIT"
-
-# Optional: pin a build-time env var
-args:
-  BUILD_VERSION: "1.0.0"
+  aarch64: ghcr.io/hassio-addons/ubuntu-base:9.0.2
+  amd64: ghcr.io/hassio-addons/ubuntu-base:9.0.2
