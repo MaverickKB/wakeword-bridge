@@ -13,7 +13,6 @@ startup: services        # start with Supervisor
 boot: auto
 init: false              # script exits – container kept by s6
 host_network: true
-watchdog: "http://127.0.0.1:12202"  # optional
 
 # Supervisor passes BUILD_FROM -> Docker ARG BUILD_FROM
 build_from:
