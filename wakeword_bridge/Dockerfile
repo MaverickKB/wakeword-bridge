@@ -1,21 +1,18 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-# Add Alpine packages
+# Alpine user-space tools you actually need
 RUN apk add --no-cache bash curl jq
 
-# Add bashio (for reading add-on options in run.sh)
-RUN curl -Lso /tmp/install.sh https://raw.githubusercontent.com/hassio-addons/bashio/main/install.sh
-RUN bash /tmp/install.sh
-RUN rm  /tmp/install.sh
+# ─── Bashio is pre-installed in the base image ───
+# - remove the broken curl line entirely
+# RUN curl …bashio…install.sh   ←  DELETE
 
 # Python deps
 RUN pip install --no-cache-dir paho-mqtt wyoming
 
-# Copy add-on files
 COPY run.sh /
 COPY udp_to_wyoming_bridge.py /
-
 RUN chmod +x /run.sh
 
-CMD [ "/run.sh" ]
+CMD ["/run.sh"]
