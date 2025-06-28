@@ -5,10 +5,9 @@ FROM ${BUILD_FROM}
 RUN apk add --no-cache bash curl jq
 
 # Add bashio (for reading add-on options in run.sh)
-RUN curl -Lso /tmp/install.sh https://raw.githubusercontent.com/hassio-addons/bashio/main/install.sh \
- && bash /tmp/install.sh && rm /tmp/install.sh
- && bash /tmp/install.sh \
- && rm /tmp/install.sh
+RUN curl -Lso /tmp/install.sh https://raw.githubusercontent.com/hassio-addons/bashio/main/install.sh
+RUN bash /tmp/install.sh
+RUN rm  /tmp/install.sh
 
 # Python deps
 RUN pip install --no-cache-dir paho-mqtt wyoming
